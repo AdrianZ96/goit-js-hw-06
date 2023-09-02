@@ -16,10 +16,10 @@ const images = [
 const pictures = document.querySelector('ul.gallery');
 
 images.forEach(image => {
-  const photo = document.createElement('img');
-  photo.textContent = image;
-  photo.src = image.src;
-  photo.alt = image.alt;
-  pictures.appendChild(photo);
-
+  const listItem = document.createElement('li');
+  listItem.insertAdjacentHTML(
+    'beforeend',
+    `<img src="${image.url}" alt="${image.alt}">`
+  );
+  pictures.appendChild(listItem);
 });

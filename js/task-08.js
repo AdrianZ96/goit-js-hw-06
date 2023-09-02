@@ -1,19 +1,23 @@
 const loginForm = document.querySelector('.login-form');
 
-  loginForm.addEventListener('submit', function (event) {
-    event.preventDefault(); 
+loginForm.addEventListener('submit', function (event) {
+  event.preventDefault(); 
 
-    const formData = new FormData(loginForm); 
+  const emailInput = event.target.querySelector('input[name="email"]');
+  const passwordInput = event.target.querySelector('input[name="password"]');
 
-    const formObject = {};
-    formData.forEach((value, key) => {
-      formObject[key] = value;
-    });
+  const emailValue = emailInput.value;
+  const passwordValue = passwordInput.value;
 
-    if (!formObject.email || !formObject.password) {
-      alert('Wszystkie pola powinny być wypełnione');
-    } else {
-      console.log('Dane z formularza:', formObject);
-      loginForm.reset(); 
-    }
-  });
+  if (!emailValue || !passwordValue) {
+    alert('Wszystkie pola powinny być wypełnione');
+  } else {
+    const formObject = {
+      email: emailValue,
+      password: passwordValue,
+    };
+
+    console.log('Dane z formularza:', formObject);
+    loginForm.reset();
+  }
+});
