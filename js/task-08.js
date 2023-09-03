@@ -1,10 +1,11 @@
 const loginForm = document.querySelector('.login-form');
 
 loginForm.addEventListener('submit', function (event) {
-  event.preventDefault(); 
+  event.preventDefault();
 
-  const emailInput = event.target.querySelector('input[name="email"]');
-  const passwordInput = event.target.querySelector('input[name="password"]');
+  const formElements = event.currentTarget.elements;
+  const emailInput = formElements.email;
+  const passwordInput = formElements.password;
 
   const emailValue = emailInput.value;
   const passwordValue = passwordInput.value;
